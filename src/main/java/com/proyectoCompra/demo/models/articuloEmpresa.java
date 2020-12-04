@@ -25,6 +25,7 @@ public class articuloEmpresa {
 	    @GeneratedValue(strategy = GenerationType.AUTO) private long idArticulo;
 	    @Column(name = "nombre") private String nombre;  
 	    @Column(name = "precio") private float precio;  
+	    @Column(name = "unidad") private String unidad;  
 	    @Column(name = "fechaIngreso") private Date fechaIngreso;
  
 	    @ManyToOne

@@ -29,6 +29,7 @@ public class articuloProveedor {
 	    @Column(name = "precio") private float precio;  
 	    @Column(name = "fechaInicio") private Date fechaInicio;  
 	    @Column(name = "fechaFinal") private Date fechaFinal;  
+	    @Column(name = "unidad") private String unidad;  
 	    @Column(name = "porcentajeDesc") private float porcentajeDesc;  
 	    @Column(name = "periodoGracia") private int periodoGracia;  
 	
