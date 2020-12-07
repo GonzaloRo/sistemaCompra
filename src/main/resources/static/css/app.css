@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.required:after {
+  content: "\A0*";
+  color: red;
+  font-size: 20px;
+}
+
+#anexos fieldset {
+  display: none;
+}
+
+#anexos fieldset.show {
+  display: block;
+}
+
+.tabs {
+  margin: 2px 5px 0px 5px;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.tabs:hover,
+.tabs.active {
+  border-bottom: 1px solid #2196F3;
+}
+
+.box {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.line {
+  background-color: #CFD8DC;
+  height: 1px;
+  width: 100%;
+}
+
