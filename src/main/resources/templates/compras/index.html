@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Compras</title>
+    <div th:replace="/partials/scripts :: link"></div>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <div th:replace="/partials/navbar"></div>
+        <div th:replace="/partials/sidebar"></div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Orden de Compras</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                                <li class="breadcrumb-item active">Orden de compra</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="card">
+
+                            <div class="card-header">
+                                Compras registradas en el sistema
+                                <a href="#" class="btn btn-sm btn-primary ml-5 pull-right">
+                                    Agregar nuevo
+                                </a>
+                            </div>
+
+                            <div class="card-body  px-0 pt-0">
+                                <div class="col-md-9" style="margin-left: 100px;">
+                                    <table class="table table-striped table-hover text-center ">
+                                        <thead>
+                                            <tr>
+                                                <th>Codigo</th>
+                                                <th>Depto. que solicita</th>
+                                                <th>Empleado</th>
+                                                <th width=300px>Acciones</th>
+                                            </tr>
+
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="compra, i : ${compras}">
+                                                <td th:utext="${compra.idcompra}"></td>
+                                                <td
+                                                    th:text="${compra.solicitud.getEmpleado().getDepto().getnombre_depto()}">
+                                                </td>
+                                                <td th:text="${compra.solicitud.getEmpleado().getNombre()}"></td>
+
+                                                <td class="btn-group" cellspacing=0>
+                                                    <a style="white-space: nowrap;"
+                                                        th:href="'/compra-show/compra?id=' + ${compra.idcompra}"
+                                                        class="btn btn-sm btn-info mr-2" role="button">
+                                                        Ver Detalles</a>
+                                                    <form action="" method="post">
+                                                        <button class="btn btn-sm btn-danger open-modal">
+                                                            Eliminar</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="d-flex justify-content-center pt-4"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div> <!-- wrapper -->
+        <div th:replace="/partials/footer"></div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <div th:replace="/partials/scripts :: script"></div>
+
+</body>
+
+</html>
