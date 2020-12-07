@@ -17,7 +17,7 @@ public class DetalleCompraRepository {
 
     public List<detalleCompra> ObtenerDetalleById(int id) {
         Object[] params = new Object[] { id };
-        return (List<detalleCompra>) jdbcTemplate.query("select * from detealle_compra dc join compra c "
+        return (List<detalleCompra>) jdbcTemplate.query("select * from detalle_compra dc join compra c "
                 + " on dc.compra_idcompra=c.idcompra"
                 + " join articulo_proveedor a on a.id_articulo=dc.articulo_id_articulo" + " where compra_idcompra= ? ",
                 params, new DetalleCompraMapper());
