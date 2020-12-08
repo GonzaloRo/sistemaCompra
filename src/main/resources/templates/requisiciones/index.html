@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Compras</title>
+    <div th:replace="/partials/scripts :: link"></div>
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <div th:replace="/partials/navbar"></div>
+        <div th:replace="/partials/sidebar"></div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Requisición de Compras</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                                <li class="breadcrumb-item active">Requisición de compra</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="container">
+                        <div class="card">
+
+                            <div class="card-header">
+                                Requisiciones de compra registrados en el sistema
+                                <a href="#" class="btn btn-sm btn-primary ml-5 pull-right">
+                                    Agregar nuevo
+                                </a>
+                            </div>
+
+                            <div class="card-body  px-0 pt-0">
+                                <table class="table table-striped table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Código</th>
+                                            <th>Depto. que solicita</th>
+                                            <th>Descripción</th>
+                                            <th>¿Aprobada?</th>
+                                            <th width=300px>Acciones</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="solicitud, i : ${solicitudes}">
+                                            <td th:utext="${i.count}"></td>
+                                            <td th:text="${solicitud.empleado.getDepto().getnombre_depto()}"></td>
+                                            <td th:text="${solicitud.getNombreArt()}">
+                                            </td>
+                                            <td th:text="${solicitud.getEstado()} ? 'Si' : 'En espera'"></td>
+                                            <td class="btn-group" cellspacing=0>
+                                                <a style="white-space: nowrap;"
+                                                    th:href="'/requisicion-show/solicitud?id=' + ${solicitud.getIdSolicitud()}"
+                                                    class="btn btn-sm btn-info mr-2" role="button">
+                                                    Ver Detalles</a>
+                                                <a th:if="${solicitud.getEstado()==1}"
+                                                    style="white-space: nowrap; color: white;"
+                                                    class="btn btn-sm btn-info mr-2" role="button">
+                                                    Generar Orden de compra</a>
+                                                <a th:if="${solicitud.getEstado()==0}"
+                                                    style="white-space: nowrap; color: white;"
+                                                    class="btn btn-sm btn-info mr-2" role="button" data-toggle="modal"
+                                                    data-target="#myModal">
+                                                    Generar Orden de compra</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class=" d-flex justify-content-center pt-4">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div> <!-- wrapper -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">No puede generar orden de compra</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>La solicitud aún no ha sido aprobada.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div th:replace="/partials/footer"></div>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+        <div th:replace="/partials/scripts :: script"></div>
+
+</body>
+
+</html>
