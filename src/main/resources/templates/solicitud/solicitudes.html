@@ -5,8 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Solicitudes</title>
+    <div th:replace="/partials/scripts :: link"></div>
 </head>
-<body>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <nav th:replace="/partials/navbar"></nav>
+        <aside th:replace="/partials/sidebar"></aside>
+        <div class="container"></div>
+    </div>
     <h1>Lista de solicitudes</h1>
     <a th:href="@{'/nueva'}">Nueva solicitud</a>
     <table border="1" cellpadding="10">
@@ -35,5 +41,8 @@
         </tr>
         </tbody>
     </table>
+    <aside class="control-sidebar control-sidebar-dark"></aside>
+    <footer th:replace="/partials/footer"></footer>
+    <div th:replace="/partials/scripts :: script"></div>
 </body>
 </html>
