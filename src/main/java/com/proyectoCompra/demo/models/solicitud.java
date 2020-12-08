@@ -1,15 +1,17 @@
 package com.proyectoCompra.demo.models;
-import javax.persistence.*;	
+
+import javax.persistence.*;
+
 @Entity
 @Table(name = "solicitud")
 
 public class solicitud {
 
-		public solicitud() {
+	public solicitud() {
 		super();
 	}
 
-		public solicitud(long idSolicitud, String nombreArt, String unidad, String cantidad, int estado,
+	public solicitud(long idSolicitud, String nombreArt, String unidad, int cantidad, int estado,
 			com.proyectoCompra.demo.models.empleado empleado) {
 		super();
 		this.idSolicitud = idSolicitud;
@@ -20,62 +22,67 @@ public class solicitud {
 		this.empleado = empleado;
 	}
 
-		@Id
-	    @GeneratedValue(strategy = GenerationType.AUTO) private long idSolicitud;
-	    @Column(name = "nombreArt") private String nombreArt;  
-	    @Column(name = "unidad") private String unidad;  
-	    @Column(name = "cantidad") private String cantidad;  
-	    @Column(name = "estado") private int estado;  
-	    
-	    @ManyToOne
-	    private empleado empleado;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long idSolicitud;
+	@Column(name = "nombreArt")
+	private String nombreArt;
+	@Column(name = "unidad")
+	private String unidad;
+	@Column(name = "cantidad")
+	private int cantidad;
+	@Column(name = "estado")
+	private int estado;
 
-		public long getIdSolicitud() {
-			return idSolicitud;
-		}
+	@ManyToOne
+	private empleado empleado;
 
-		public void setIdSolicitud(long idSolicitud) {
-			this.idSolicitud = idSolicitud;
-		}
+	public long getIdSolicitud() {
+		return idSolicitud;
+	}
 
-		public String getNombreArt() {
-			return nombreArt;
-		}
+	public void setIdSolicitud(long idSolicitud) {
+		this.idSolicitud = idSolicitud;
+	}
 
-		public void setNombreArt(String nombreArt) {
-			this.nombreArt = nombreArt;
-		}
+	public String getNombreArt() {
+		return nombreArt;
+	}
 
-		public String getUnidad() {
-			return unidad;
-		}
+	public void setNombreArt(String nombreArt) {
+		this.nombreArt = nombreArt;
+	}
 
-		public void setUnidad(String unidad) {
-			this.unidad = unidad;
-		}
+	public String getUnidad() {
+		return unidad;
+	}
 
-		public String getCantidad() {
-			return cantidad;
-		}
+	public void setUnidad(String unidad) {
+		this.unidad = unidad;
+	}
 
-		public void setCantidad(String cantidad) {
-			this.cantidad = cantidad;
-		}
+	public int getCantidad() {
+		return cantidad;
+	}
 
-		public int getEstado() {
-			return estado;
-		}
+	public void setCantidad(int cantidad) {
+		this.cantidad = cantidad;
+	}
 
-		public void setEstado(int estado) {
-			this.estado = estado;
-		}
+	public int getEstado() {
+		return estado;
+	}
 
-		public empleado getEmpleado() {
-			return empleado;
-		}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
 
-		public void setEmpleado(empleado empleado) {
-			this.empleado = empleado;
-		}
-	
+	public empleado getEmpleado() {
+		return empleado;
+	}
+
+	public void setEmpleado(empleado empleado) {
+		this.empleado = empleado;
+	}
+
 }
