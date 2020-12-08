@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes</title>
+</head>
+<body>
+    <h1>Lista de solicitudes</h1>
+    <a th:href="@{'/nueva'}">Nueva solicitud</a>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre art&iacuteculo</th>
+            <th>Unidad</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th>Acci&oacute;n</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="solicitud : ${lista_solicitudes}">
+            <td th:text="${solicitud.idSolicitud}">Product ID</td>
+            <td th:text="${solicitud.nombreArt}">Name</td>
+            <td th:text="${solicitud.unidad}">Brand</td>
+            <td th:text="${solicitud.cantidad}">Brand</td>
+            <td th:text="${solicitud.estado}">Brand</td>
+            <td>
+                <a th:href="@{'/editar/' + ${solicitud.idSolicitud}}">Editar</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/eliminar/' + ${solicitud.idSolicitud}}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar solicitud</title>
+</head>
+<body>
+    <h1>Nueva solicitud</h1>
+    <form th:action="@{/guardar}" method="post">
+        <label for="nombre">Nombre art&iacuteculo</label>
+        <input type="text" id="nombre" name="nombre" >
+        <label for="unidad">Unidad</label>
+        <input type="text" id="unidad" name="unidad" >
+        <label for="cantidad">Unidad</label>
+        <input type="text" id="cantidad" name="cantidad" >
+        <label for="estado">Unidad</label>
+        <input type="text" id="estado" name="estado" >
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+</html>
