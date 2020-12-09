@@ -5,11 +5,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Art&iacute;culos</title>
+    <div th:replace="/partials/scripts::link"></div>
 </head>
 <body>
+    <div class="col-md-8">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
     <h1>Art&iacute;culos</h1>
-    <a th:href="@{'/nueva'}">Nuevo art&iacute;culo</a>
-    <table border="1" cellpadding="10">
+    <a th:href="@{'/nuevoArticulo'}">Nuevo art&iacute;culo</a>
+            </div>
+            <div class="card-body">
+    <table class="table">
         <thead>
         <tr>
             <th>Nombre art&iacuteculo</th>
@@ -31,12 +38,17 @@
             <td th:text="${articulo.porcentajeDesc}">Brand</td>
             <td th:text="${articulo.periodoGracia}">Brand</td>
             <td>
-                <a th:href="@{'/editar/' + ${articulo.idArticulo}}">Editar</a>
+                <a th:href="@{'/editarArticulo/' + ${articulo.idArticulo}}">Editar</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/eliminar/' + ${articulo.idArticulo}}">Eliminar</a>
+                <a th:href="@{'eliminarArticulo' + ${articulo.idArticulo}}">Eliminar</a>
             </td>
         </tr>
         </tbody>
     </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer th:replace="/partials/footer"></footer>
 </body>
 </html>

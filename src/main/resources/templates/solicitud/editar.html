@@ -5,19 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar solicitud</title>
+    <div th:replace="/partials/scripts :: link"></div>
 </head>
 <body>
+    <div class="col-md-8">
+    <div class="container">
     <h1>Editar solicitud</h1>
-    <form th:action="@{/guardar}" method="post" th:object="${solicitud}">
-        <label for="nombre">Nombre art&iacuteculo</label>
-        <input type="text" id="nombre" name="nombre" th:value="${nombreArt}">
-        <label for="unidad">Unidad</label>
-        <input type="text" id="unidad" name="unidad" th:value="${unidad}">${solicitud.unidad}
-        <label for="cantidad">Unidad</label>
-        <input type="text" id="cantidad" name="cantidad" th:value="${cantidad}">
-        <label for="estado">Unidad</label>
-        <input type="text" id="estado" name="estado" th:value="${estado}">
+    <a th:href="@{/solicitudes}">Atr&aacute;s</a>
+    <form action="#" th:action="@{/guardarSolicitud}" method="post" th:object="${solicitud}">
+        <label for="nombre" class="form-label">Nombre art&iacuteculo</label>
+        <input type="text" id="nombre" name="nombre" th:value="*{nombreArt}" class="form-control">
+        <label for="unidad" class="form-label">Unidad</label>
+        <input type="text" id="unidad" name="unidad" th:value="*{unidad}" class="form-control">
+        <label for="cantidad" class="form-label">Unidad</label>
+        <input type="text" id="cantidad" name="cantidad" th:value="$*cantidad}" class="form-control">
+        <label for="estado" class="form-label">Unidad</label>
+        <input type="text" id="estado" name="estado" th:value="*{estado}" class="form-control">
         <input type="submit" value="Guardar">
+    </div>
+    </div>
     </form>
+    <footer th:replace="/partials/footer"></footer>
 </body>
 </html>
