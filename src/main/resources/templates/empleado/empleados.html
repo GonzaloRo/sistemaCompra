@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+    <div th:replace="/partials/scripts::link"></div>
+</head>
+<body>
+    <div class="col-md-8">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+    <h1>Empleados</h1>
+    <a th:href="@{'/nuevoEmpleado'}">Agregar nuevo empleado</a>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID empleado:</th>
+            <th>Nombre:</th>
+            <th>Cargo:</th>
+            <th>Departamento:</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="empleado : ${lista_empleados}">
+            <td th:text="${empleado.idEmpleado}">ID empleado</td>
+            <td th:text="${empleado.nombre}">Nombre</td>
+            <td th:text="${empleado.cargo}">Cargo</td>
+            <td th:text="${empleado.depto}">Departamento</td>
+            
+            <td>
+                <a th:href="@{'/editarEmpleado/' + ${empleado.idEmpleado}}">Editar</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'eliminarEmpleado' + ${empleado.idEmpleado}}">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer th:replace="/partials/footer"></footer>
+</body>
+</html>

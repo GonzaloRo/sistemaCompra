@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo empleado</title>
+    <div th:replace="/partials/scripts :: link"></div>
+</head>
+<body>
+    <div class="col-md-8">
+    <div class="container">
+    <h1>Nuevo empleado</h1>
+    <a th:href="@{/empleado}">Empleados</a>
+    <form action="#" th:action="@{/guardarEmpleado}" method="post" th:object="${empleado}">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" th:value="*{nombre}" class="form-control">
+        <label for="cargo" class="form-label">Cargo:</label>
+        <input type="text" id="cargo" name="cargo" th:value="*{cargo}" class="form-control">
+        <label for="departamento" class="form-label">Departamento:</label>
+        <input type="text" id="depto" name="depto" th:value="*{depto}" class="form-control">
+        <input type="submit" value="Guardar" class="btn btn-primary">
+    </form>
+    </div>
+    </div>
+    <footer th:replace="/partials/footer"></footer>
+</body>
+</html>
