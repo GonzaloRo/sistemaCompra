@@ -69,6 +69,7 @@
                                                     class="btn btn-sm btn-info mr-2" role="button">
                                                     Ver Detalles</a>
                                                 <a th:if="${solicitud.getEstado()==1}"
+                                                    th:href="'/orden-generate/solicitud?id=' + ${solicitud.getIdSolicitud()}"
                                                     style="white-space: nowrap; color: white;"
                                                     class="btn btn-sm btn-info mr-2" role="button">
                                                     Generar Orden de compra</a>

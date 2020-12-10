@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Compras | Ver</title>
+    <title>Sistema Compras | Orden de compra</title>
     <div th:replace="/partials/scripts :: link"></div>
 </head>
 
@@ -12,18 +12,19 @@
     <div class="wrapper">
         <div th:replace="/partials/navbar"></div>
         <div th:replace="/partials/sidebar"></div>
-        <div class="content-wrapper">
+        <div class="content-wrapper ">
+
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark"> Requisiciones</h1>
+                            <h1 class="m-0 text-dark">Orden de Compra</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                                <li class="breadcrumb-item active">Requisiciones</li>
+                                <li class="breadcrumb-item"><a th:href="@{/inicio}">Inicio</a></li>
+                                <li class="breadcrumb-item active">Orden de Compra</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -37,7 +38,7 @@
                             <div class="card">
 
                                 <div class="card-header">
-                                    Detalles de solicitud
+                                    Orden de compra
                                 </div>
 
                                 <div class="card-body">
@@ -45,22 +46,14 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row"> Código:</th>
-                                                <td th:text="${solicitud.getIdSolicitud()}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> Descripción :</th>
-                                                <td th:text="${solicitud.getNombreArt()}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row"> Departamento solicitante :</th>
-                                                <td th:text="${solicitud.empleado.getDepto().getnombre_depto()}"></td>
+                                                <td th:text="${solicitud.idSolicitud}"></td>
                                             </tr>
                                             <tr>
                                                 <th scope="row"> Creada por: </th>
                                                 <td th:text="${solicitud.getEmpleado().getNombre()}"></td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Articulos que se solicitan :</strong></th>
+                                                <th scope="row">Articulos :</strong></th>
                                                 <td></td>
                                             <tr>
                                                 <table class="table">
@@ -68,12 +61,18 @@
                                                         <th>#</th>
                                                         <th>Descripción</th>
                                                         <th>Cantidad</th>
+                                                        <th>Precio Unitario</th>
+                                                        <th>Total</th>
                                                     </thead>
                                                     <tbody>
                                                         <tr th:each="detalle, i : ${detalles}">
                                                             <td th:utext="${i.count}"></td>
-                                                            <td th:text="${detalle.articulo.getNombre()}"></td>
-                                                            <td th:text="${detalle.getCantidad()}"></td>
+                                                            <td th:text="${detalle.articulo.nombre}"></td>
+                                                            <td th:text="${detalle.cantidad}"></td>
+                                                            <td th:text="${detalle.articulo.precio}">$ </td>
+                                                            <td
+                                                                th:text="${detalle.cantidad * detalle.articulo.precio }">
+                                                                <strong>$ </strong></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -83,13 +82,17 @@
                                     </table>
 
                                 </div>
+                                <div class="card-footer">
+                                    <a th:href="@{/requisicion-index}" class="btn btn-danger float-left">Atras</a>
+                                    <button class="btn btn-success float-right">Enviar</button>
+                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
         </div>
-        </section>
     </div>
     <!--Wrapper-->
     <div th:replace="/partials/footer"></div>
