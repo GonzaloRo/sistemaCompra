@@ -15,35 +15,24 @@
         <div class="card">
             <div class="card-header">
     <h1>Art&iacute;culos</h1>
-    <a th:href="@{'/nuevoArticulo'}">Nuevo art&iacute;culo</a>
+    <a th:href="@{'/nuevoArticuloe'}">Nuevo art&iacute;culo</a>
             </div>
             <div class="card-body">
     <table class="table">
         <thead>
         <tr>
             <th>Nombre art&iacuteculo</th>
-            <th>Precio</th>
-            <th>Fecha inicio</th>
-            <th>Fecha fin</th>
-            <!--<th>Unidad</th>-->
-            <th>Porcentaje descuento</th>
-            <th>Acci&oacute;n</th>
+            <th>Precio de compra</th>
+             
+            
+        
         </tr>
         </thead>
         <tbody>
         <tr th:each="articulo : ${lista_articulos}">
             <td th:text="${articulo.nombre}">Product ID</td>
             <td th:text="${articulo.precio}">Name</td>
-            <td th:text="${articulo.fechaInicio}">Brand</td>
-            <td th:text="${articulo.fechaFinal}">Brand</td>
-            <!-- <td th:text="${articulos.}">Brand</td> -->
-            <td th:text="${articulo.porcentajeDesc}">Brand</td>
-            <td th:text="${articulo.periodoGracia}">Brand</td>
-            <td>
-                <a th:href="@{'/editarArticulo/' + ${articulo.idArticulo}}">Editar</a>
-                &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'eliminarArticulo' + ${articulo.idArticulo}}">Eliminar</a>
-            </td>
+                        
         </tr>
         </tbody>
     </table>

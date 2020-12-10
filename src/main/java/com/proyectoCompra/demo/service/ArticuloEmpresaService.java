@@ -1,7 +1,7 @@
 package com.proyectoCompra.demo.service;
 
-import com.proyectoCompra.demo.models.articuloProveedor;
-import com.proyectoCompra.demo.repository.IArticuloProveedorRepository;
+import com.proyectoCompra.demo.models.articuloEmpresa;
+import com.proyectoCompra.demo.repository.IArticuloEmpresaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,26 +12,27 @@ import java.util.Optional;
 @Service
 public class ArticuloEmpresaService {
     @Autowired
-    private IArticuloProveedorRepository articuloProveedorRepository;
+    private IArticuloEmpresaRepository articuloEmpresaRepository;
 
-    public articuloProveedor create(articuloProveedor articulo) {
-        return articuloProveedorRepository.save(articulo);
+    public articuloEmpresa create(articuloEmpresa articulo) {
+        return articuloEmpresaRepository.save(articulo);
     }
 
-    public articuloProveedor update(articuloProveedor articulo) {
-        return articuloProveedorRepository.save(articulo);
+    public articuloEmpresa update(articuloEmpresa articulo) {
+    	 return articuloEmpresaRepository.save(articulo);
     }
 
-    public articuloProveedor findById(Long id) {
-        Optional<articuloProveedor> option = articuloProveedorRepository.findById(id);
+    public articuloEmpresa findById(Long id) {
+        Optional<articuloEmpresa> option = articuloEmpresaRepository.findById(id);
         return option.orElse(null);
     }
 
-    public List<articuloProveedor> findAll() {
-        return articuloProveedorRepository.findAll();
+    public List<articuloEmpresa> findAll() {
+        return articuloEmpresaRepository.findAll();
     }
 
     public void delete(Long id) {
-        articuloProveedorRepository.deleteById(id);
+    	articuloEmpresaRepository.deleteById(id);
     }
 }
+   

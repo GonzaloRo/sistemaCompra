@@ -2,8 +2,9 @@ package com.proyectoCompra.demo.models;
 import java.util.Date;
 
 import javax.persistence.*;
+
 @Entity
-@Table(name = "articuloProveedor")
+@Table(name = "articuloEmpresa")
 
 public class articuloEmpresa {
 	
@@ -11,13 +12,13 @@ public class articuloEmpresa {
 		super();
 	}
 
-		public articuloEmpresa(long idArticulo, String nombre, float precio, Date fechaIngreso,
+		public articuloEmpresa(long idArticulo, String nombre, float precio, Date fecha_ingreso,
 			com.proyectoCompra.demo.models.empleado empleado) {
 		super();
 		this.idArticulo = idArticulo;
 		this.nombre = nombre;
 		this.precio = precio;
-		this.fechaIngreso = fechaIngreso;
+		this.fecha_ingreso = fecha_ingreso;
 		this.empleado = empleado;
 	}
 
@@ -26,7 +27,8 @@ public class articuloEmpresa {
 	    @Column(name = "nombre") private String nombre;  
 	    @Column(name = "precio") private float precio;  
 	    @Column(name = "unidad") private String unidad;  
-	    @Column(name = "fechaIngreso") private Date fechaIngreso;
+	    @Column(name = "fecha_ingreso")  private Date fecha_ingreso;
+	   
  
 	    @ManyToOne
 	    private empleado empleado;
@@ -56,11 +58,11 @@ public class articuloEmpresa {
 		}
 
 		public Date getFechaIngreso() {
-			return fechaIngreso;
+			return fecha_ingreso;
 		}
 
 		public void setFechaIngreso(Date fechaIngreso) {
-			this.fechaIngreso = fechaIngreso;
+			this.fecha_ingreso = fechaIngreso;
 		}
 
 		public empleado getEmpleado() {
