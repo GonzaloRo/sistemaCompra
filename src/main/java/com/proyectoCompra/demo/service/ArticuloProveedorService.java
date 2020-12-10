@@ -15,9 +15,9 @@ public class ArticuloProveedorService {
     @Autowired
     private IArticuloProveedorRepository articuloProveedorRepository;
 
-    	public articuloProveedor create(articuloProveedor articulo) {
+    public articuloProveedor create(articuloProveedor articulo) {
         return articuloProveedorRepository.save(articulo);
-    	}
+    }
 
     public articuloProveedor update(articuloProveedor articulo) {
         return articuloProveedorRepository.save(articulo);
