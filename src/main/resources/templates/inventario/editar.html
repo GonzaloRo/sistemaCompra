@@ -12,15 +12,15 @@
     <div class="container">
     <h1>Editar art&iacute;culo</h1>
     <a th:href="@{/inventario}">Atr&aacute;s</a>
-    <form action="#" th:action="@{/guardarAticulo}" method="post" th:object="${articulo}">
+    <form action="#" th:action="@{/guardarArticulo}" method="post" th:object="${articulo}">
         <label for="nombre" class="form-label">Nombre art&iacuteculo</label>
         <input type="text" id="nombre" name="nombre" th:value="*{nombre}" class="form-control">
         <label for="precio" class="form-label">Precio</label>
         <input type="text" id="precio" name="precio" th:value="*{precio}" class="form-control">
         <label for="fechIni" class="form-label">Fecha inicio</label>
-        <input type="text" id="fechIni" name="fechIni" th:value="*{fechaInicio}" class="form-control">
+        <input type="date" id="fechIni" name="fechIni" th:value="${#dates.format(fechaInicio, 'dd-MM-yyyy')}" class="form-control">
         <label for="fechFin" class="form-label">Fecha final</label>
-        <input type="text" id="fechFin" name="fechFin" th:value="*{fechaFinal}" class="form-control">
+        <input type="date" id="fechFin" name="fechFin" th:value="${#dates.format(fechaFinal, 'dd-MM-yyyy')}" class="form-control">
         <!--<label for="unidad" class="form-label">Unidad</label>
         <input type="text" id="unidad" name="unidad" th:value="*{unidad}" class="form-control">-->
         <label for="porcDes" class="form-label">Porcentaje descuento</label>

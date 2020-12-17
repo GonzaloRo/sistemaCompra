@@ -1,6 +1,10 @@
 package com.proyectoCompra.demo.models;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
+
+import static javax.persistence.TemporalType.DATE;
 
 @Entity
 @Table(name = "articuloProveedor")
@@ -26,8 +30,12 @@ public class articuloProveedor {
 	@Id
 	    @GeneratedValue(strategy = GenerationType.AUTO) private long idArticulo;
 	    @Column(name = "nombre") private String nombre;  
-	    @Column(name = "precio") private float precio;  
-	    @Column(name = "fechaInicio") private Date fechaInicio;  
+	    @Column(name = "precio") private float precio;
+	    @Temporal(DATE)
+	    @DateTimeFormat(pattern="dd-MMM-YYYY")
+	    @Column(name = "fechaInicio") private Date fechaInicio;
+	    @Temporal(DATE)
+	    @DateTimeFormat (pattern="dd-MMM-YYYY")
 	    @Column(name = "fechaFinal") private Date fechaFinal;  
 	    @Column(name = "unidad") private String unidad;  
 	    @Column(name = "porcentajeDesc") private float porcentajeDesc;  
